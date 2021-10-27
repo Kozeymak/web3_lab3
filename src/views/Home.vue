@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1>Главная страница</h1>
+    <div class="text-h3 py-5 text-center">Привет пользователь!</div>
     <v-carousel>
       <v-carousel-item
         v-for="(item, i) in articles"
