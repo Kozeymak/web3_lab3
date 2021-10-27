@@ -25,8 +25,5 @@ export default {
     },
   },
 
-  created() {
-    this.$store.dispatch("GET_ARTICLES");
-  },
 };
 </script>

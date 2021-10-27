@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Gallery from "../views/Gallery";
+import DetailedNews from "../views/DetailedNews";
 
 Vue.use(VueRouter);
 
@@ -12,8 +13,8 @@ const routes = [
     component: Home,
   },
   {
-    path: "/about",
-    name: "About",
+    path: "/news",
+    name: "News",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -25,6 +26,11 @@ const routes = [
     name: "Gallery",
     component: Gallery,
   },
+  {
+    path: "/news/:id",
+    name: "detailedNews",
+    component: DetailedNews,
+  }
 ];
 
 const router = new VueRouter({

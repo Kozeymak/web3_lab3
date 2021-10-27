@@ -30,7 +30,7 @@
               <v-list-item-title>Главная</v-list-item-title>
             </v-list-item>
 
-            <v-list-item @click="$router.push('/about')">
+            <v-list-item @click="$router.push('/news')">
               <v-list-item-icon>
                 <v-icon>mdi-account</v-icon>
               </v-list-item-icon>
