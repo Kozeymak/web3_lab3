@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="comments" class="text-h4 pt-13">Комментарии:</div>
+    <div v-if="!(comments.length === 0)" class="text-h4 pt-13">Комментарии:</div>
     <v-card
       v-for="(item, i) in comments"
       :key="i"
@@ -13,7 +13,7 @@
         {{ item.comment }}
       </v-card-text>
     </v-card>
-    <Form v-if="comments"/>
+    <Form v-if="comments" @updateCommentsList="getComments"/>
   </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
   components: { Form },
   data() {
     return {
-      comments: null,
+      comments: [],
     };
   },
 
@@ -41,6 +41,7 @@ export default {
 
   created() {
     this.getComments();
+    console.log(this.comments.length);
   },
 };
 </script>

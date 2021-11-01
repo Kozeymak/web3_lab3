@@ -26,8 +26,8 @@
         color="teal darken-3 white--text"
         class="mr-4"
         @click="addComment"
-        >Добавить</v-btn
-      >
+        >Добавить
+      </v-btn>
 
       <v-btn color="error" class="mr-4" @click="reset">Очистить</v-btn>
     </v-form>
@@ -68,14 +68,23 @@ export default {
     },
     async addComment() {
       try {
-        //TODO: написать пост запрос и разделить форму а компоненты
-        axios.post
+        axios.post(
+          `http://demo-api.vsdev.space/api/articles/${this.$route.params.id}/comments`,
+          {
+            user_name: this.name,
+            comment: this.comment,
+          }
+        );
+        this.$emit('updateCommentsList')
+        this.reset()
       } catch (e) {
         console.log(e);
       }
     },
     checkValidity() {
-      this.valid = !(this.$refs.name.validate() && this.$refs.comment.validate())
+      this.valid = !(
+        this.$refs.name.validate() && this.$refs.comment.validate()
+      );
     },
   },
 };
